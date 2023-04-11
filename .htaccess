@@ -1,0 +1,6 @@
+DirectoryIndex home.php
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteCond %{SCRIPT_FILENAME} !-f
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteRule ^home$ home.php [QSA,L,NC]

@@ -1,0 +1,20 @@
+:root {
+  --body-bg: #FFFFFF;
+  --card-bg: #FFFFFF;
+  --card-bd-col: #bdbdbd;
+  --text-color: #252525;
+  --shadow-color: #b3aeae;
+}
+
+
+.dark_mode {
+  --body-bg: #1A1A1A;
+  --card-bg: #555;
+  --card-bd-col: #1A1A1A;
+  --text-color: #f5f5f5;
+  --shadow-color: rgb(245, 245, 245, 0.2);
+}
+
+header {
+  background: var(--body-bg);
+}

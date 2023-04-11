@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+.divfram {
+  display: flex;
+  justify-content: center;
+  height: 300px;
+  overflow: hidden;
+}
+
+iframe {
+  padding-top: 50px;
+  position: absolute;
+  width: 90%;
+  left: 5%;
+  height: 350px;
+}
+
+.pacotes {
+  background: url(../img/hero_pacotes.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.form {
+  background: url(../img/card3.png);
+  background-repeat: no-repeat;
+  background-size: cover
+}
