@@ -1,5 +1,5 @@
 <?php
-
+require "db_config.php";
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -21,39 +21,22 @@
 
 <body>
 	<?php include "./components/navbar.php" ?>
-	
-	<section>
-		<div class="bg-black h-[550px]">
-
-		</div>
-	</section>
-
+	<?php include "./components/banners.php" ?>
 
 	<script src="./assets/js/dark_mode.js"></script>
 	<script src="https://unpkg.com/flowbite@1.4.1/dist/flowbite.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 	<script>
-		var swiper = new Swiper(".mySwiper", {
-			freeMode: true,
-			spaceBetween: 20,
-			pagination: {
-				el: ".swiper-pagination",
-				clickable: true,
-			},
-			breakpoints: {
-				640: {
-					slidesPerView: 2,
-					spaceBetween: 20,
-				},
-				768: {
-					slidesPerView: 4,
-					spaceBetween: 40,
-				},
-				1024: {
-					slidesPerView: 4,
-					spaceBetween: 50,
-				},
-			},
+		var swiper = new Swiper(".swiper_banners", {
+			loop: true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
 		});
 	</script>
 	<script>
