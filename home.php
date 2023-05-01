@@ -77,6 +77,7 @@ require "db_config.php";
 		</div>
 	</section>
 	<script src="./assets/js/dark_mode.js"></script>
+	<script src="./assets/js/tw.js"></script>
 	<script src="https://unpkg.com/flowbite@1.4.1/dist/flowbite.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 	<script>

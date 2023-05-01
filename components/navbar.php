@@ -1,4 +1,4 @@
-<header style="background: #13213c;" class="shadow z-50 fixed top-0 w-full">
+<header class="bg-color1 shadow z-50 fixed top-0 w-full">
   <nav class="">
     <div class="flex flex-wrap items-center justify-between max-w-7xl px-4 mx-auto">
       <a href="#" class="flex items-center md:w-1/5">

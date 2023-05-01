@@ -2,7 +2,7 @@ tailwind.config = {
   theme: {
     extend: {
       colors: {
-        color1: '#3E4095',
+        color1: '#13213c',
         color2: '#1D516C',
         color3: '#ACC727',
       }

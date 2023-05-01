@@ -9,23 +9,10 @@ session_start();
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            color1: 'rgba(188, 0, 202, 1)',
-            color2: 'rgba(40, 14, 124, 1)',
-            color3: 'rgb(62, 206, 221)',
-          }
-        }
-      }
-    }
-  </script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/AlertifyJS/1.13.1/css/alertify.min.css" />
 </head>
 
-<body class="bg-white">
+<body class="bg-color1">
   <div class="pt-10 md:pt-0 md:px-0 px-4 relative min-h-screen sm:flex sm:flex-col justify-center bg-transparent rounded-3xl">
     <div class="flex-col flex self-center lg:px-14 sm:max-w-4xl xl:max-w-md z-10">
       <div class="flex justify-center text-gray-300">
@@ -35,7 +22,7 @@ session_start();
     <div class="flex justify-center self-center z-10 shadow-2xl">
       <div class="p-12 bg-white mx-auto rounded-2xl w-96 ">
         <div class="mb-7">
-          <h3 class="font-semibold text-2xl text-gray-800">Entrar </h3>
+          <h3 class="font-semibold text-2xl text-gray-800 text-center">Sistema Administrativo </h3>
         </div>
         <form action="./controllers/auth.php" method="POST">
           <div class="space-y-6">
@@ -75,6 +62,7 @@ session_start();
   <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/AlertifyJS/1.13.1/alertify.min.js"></script>
+  <script src="../assets/js/tw.js"></script>
   <script>
     <?php if (isset($_GET['login']) && $_GET['login'] == 'failed') : ?>
       alertify.error("Login ou senha incorretos");
