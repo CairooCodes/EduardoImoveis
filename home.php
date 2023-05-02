@@ -1,5 +1,10 @@
 <?php
 require "db_config.php";
+require "config/helper.php";
+require "config/url.class.php";
+require "./functions/get.php";
+$URI = new URI();
+$products = getAllProducts();
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -64,7 +69,7 @@ require "db_config.php";
 									<h2 class="text-base">Apartamento duplo</h2>
 								</div>
 								<div class="flex justify-center">
-									<a class="btn bg-color1 p-2 text-white rounded text-sm mt-4" href="">SAIBA MAIS</a>
+									<a class="btn bg-color1 p-2 text-white rounded text-sm mt-4" href="<?php echo $URI->base('imovel/' . slugify($products['name'])); ?>">SAIBA MAIS</a>
 								</div>
 							</div>
 						</div>

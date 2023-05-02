@@ -4,3 +4,4 @@ RewriteCond %{HTTPS} off
 RewriteCond %{SCRIPT_FILENAME} !-f
 RewriteCond %{SCRIPT_FILENAME} !-d
 RewriteRule ^home$ home.php [QSA,L,NC]
+RewriteRule ^imovel\/([0-9A-z_-]+)$ imovel.php?slug=$1 [QSA,L,NC]
