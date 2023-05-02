@@ -107,7 +107,64 @@ $page = 'dash';
             </tr>
           </thead>
           <tbody>
-      
+            <?php foreach ($products as $products) { ?>
+              <tr class="bg-white border-b">
+                <th scope="row" class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap">
+                  <?php
+                  if (!empty($products['img'])) {
+                    $img = base64_encode($products['img']);
+                    echo "<img class='w-10' src='data:image/jpeg;base64," . $img . "'>";
+                  }
+                  ?>
+                  <div class="pl-3">
+                    <div class="text-base font-semibold"><?php echo $products['name']; ?></div>
+                  </div>
+                </th>
+                <td class="px-6 py-4">
+                  <?php echo $products['price']; ?>
+                </td>
+                <td class="px-6 py-4">
+                  <div class="flex">
+                    <?php
+                    for ($i = 1; $i <= 5; $i++) {
+                      if ($i <= $products['stars']) { ?>
+                        <svg style="color: #ffd700 !important" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+                          <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                        </svg>
+                      <?php
+                      } else { ?>
+                        <svg style="color: #ffd700 !important" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
+                          <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z" />
+                        </svg>
+                    <?php
+                      }
+                    }
+                    ?>
+                  </div>
+                </td>
+                <td class="px-6 py-4">
+                  <div class="flex items-center">
+                    <div class="h-2.5 w-2.5 rounded-full bg-green-500 mr-2"></div> Ativo
+                  </div>
+                </td>
+                <td class="px-6 py-4">
+                  <a href="./editar_produto.php?id=<?php echo $products['id']; ?>" type="button" data-modal-target="editUserModal" data-modal-show="editUserModal" class="font-medium text-blue-600 hover:underline">Editar</a>
+                  <a href="./controllers/delete_user.php?id=<?php echo $products['id']; ?>" type="button" class="font-medium text-red-600 hover:underline">Excluir</a>
+                </td>
+                <td>
+                  <?php
+                  if ($products['images']) {
+                    $imagens = unserialize($products['images']);
+
+                    foreach ($imagens as $imagem) {
+                      $imgs = base64_encode($imagem);
+                      echo "<img class='w-10' src='data:image/jpeg;base64," . $imgs . "'>";
+                    }
+                  }
+                  ?>
+                </td>
+              </tr>
+            <?php } ?>
           </tbody>
         </table>
         <?php include "./components/modal_add_product.php"; ?>
