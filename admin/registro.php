@@ -25,7 +25,7 @@ session_start();
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/AlertifyJS/1.13.1/css/alertify.min.css" />
 </head>
 
-<body class="bg-white">
+<body class="bg-color1">
   <div class="pt-10 md:pt-0 md:px-0 px-4 relative min-h-screen sm:flex sm:flex-col justify-center bg-transparent rounded-3xl">
     <div class="flex-col flex self-center lg:px-14 sm:max-w-4xl xl:max-w-md z-10">
       <div class="flex justify-center text-gray-300">
@@ -35,7 +35,7 @@ session_start();
     <div class="flex justify-center self-center z-10 shadow-2xl">
       <div class="p-12 bg-white mx-auto rounded-2xl w-96 ">
         <div class="mb-7">
-          <h3 class="font-semibold text-2xl text-gray-800">Cadastro de Usuário </h3>
+          <h3 class="font-semibold text-2xl text-gray-800 text-center">Cadastro de Usuário </h3>
         </div>
         <form action="./controllers/add_user.php" method="post" enctype="multipart/form-data">
           <div class="space-y-6">
@@ -76,6 +76,7 @@ session_start();
   <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/AlertifyJS/1.13.1/alertify.min.js"></script>
+  <script src="../assets/js/tw.js"></script>
   <script>
     <?php if (isset($_GET['login']) && $_GET['login'] == 'failed') : ?>
       alertify.error("Login ou senha incorretos");

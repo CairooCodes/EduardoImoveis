@@ -51,7 +51,10 @@ function getHotel($get_url_2)
   <?php include "./components/navbar.php" ?>
   <section class="pt-20">
     <div class="max-w-6xl px-4 pb-8 mx-auto lg:pb-16">
-      <div class="swiper mySwiper">
+      <div class="swiper mySwiper lg:hidden">
+        <h1 class="text-color1 text-3xl pb-4 font-light">
+          <?php echo $product['name']; ?>
+        </h1>
         <div class="swiper-wrapper">
           <?php
           if ($product['images']) {
@@ -69,7 +72,25 @@ function getHotel($get_url_2)
       </div>
       <div class="grid lg:grid-cols-12 lg:pt-5">
         <div class="lg:col-span-7">
-
+          <h1 class="text-color1 text-3xl pb-4 font-light">
+            <?php echo $product['name']; ?>
+          </h1>
+          <div class="swiper mySwiper hidden lg:block">
+            <div class="swiper-wrapper">
+              <?php
+              if ($product['images']) {
+                $imagens = unserialize($product['images']);
+                foreach ($imagens as $imagem) {
+                  $imgs = base64_encode($imagem);
+                  echo "<div class='swiper-slide'><img class='h-96 w-full' src='data:image/jpeg;base64," . $imgs . "'></div>";
+                }
+              }
+              ?>
+            </div>
+            <div class="swiper-button-next text-white"></div>
+            <div class="swiper-button-prev text-white"></div>
+            <div class="swiper-pagination"></div>
+          </div>
           <div class="flex justify-center pt-5">
             <a target="_blank" href="<?php echo $product['link']; ?>">
               <button class="bg-color1 rounded-md p-5 text-white">CONFIRA NOSSA DISPONIBILIDADE</button>
