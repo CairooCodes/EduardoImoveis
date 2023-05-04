@@ -2,7 +2,7 @@
   <nav class="">
     <div class="flex flex-wrap items-center justify-between max-w-7xl px-4 mx-auto">
       <a href="#" class="flex items-center md:w-1/5">
-        <img class="h-20" src="./assets/img/logo.png" alt="Landwind Logo" />
+        <img class="h-20" src="<?php echo $URI->base('./assets/img/logo.png'); ?>" alt="Landwind Logo" />
       </a>
       <div class="flex justify-center md:w-4/5 items-center lg:order-2">
         <ul class="flex w-full flex-col mt-4 lg:flex-row lg:space-x-8 lg:mt-0">

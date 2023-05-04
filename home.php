@@ -10,16 +10,10 @@ $products = getAllProducts();
 <html lang="pt-br">
 
 <head>
+	<title>Eduardo Leal Imóveis</title>
 	<?php include "./components/head_core.php"; ?>
-	<title>Eduardo Imoveis</title>
-	<meta name="title" content="Eduardo Imoveis">
-	<meta name="description" content="Eduardo Imoveis">
-	<meta property="og:title" content="Eduardo Imoveis">
-	<meta property="og:site_name" content="">
-	<meta property="og:url" content="" />
-	<meta property="og:description" content="">
-	<meta property="og:type" content="">
-	<meta property="og:image" content="">
+	<meta name="title" content="Eduardo Leal Imóveis">
+	<meta property="og:image" content="https://eduardolealimoveis.com/assets/img/logo.png">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
 	<link rel="stylesheet" href="./assets/css/swiper.css">
 </head>
