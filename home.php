@@ -5,6 +5,7 @@ require "config/url.class.php";
 require "./functions/get.php";
 $URI = new URI();
 $products = getAllProducts();
+$banners = getBanners();
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
