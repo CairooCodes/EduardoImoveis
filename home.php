@@ -61,6 +61,7 @@ $banners = getBanners();
 			</div>
 		</div>
 	</section>
+	<?php include "./components/form.php" ?>
 	<?php include "./components/footer.php" ?>
 	<script src="./assets/js/dark_mode.js"></script>
 	<script src="./assets/js/tw.js"></script>
