@@ -4,8 +4,12 @@ require "../../db_config.php";
 $name = $_POST['name'];
 $price = $_POST['price'];
 $categorie_id = $_POST['categorie_id'];
-$stars = $_POST['stars'];
 $link = $_POST['link'];
+$endereco = $_POST['endereco'];
+$zona = $_POST['zona'];
+$metro_quadrado = $_POST['metro_quadrado'];
+$bairro = $_POST['bairro'];
+$quartos = $_POST['quartos'];
 $description = $_POST['description'];
 $imagens = [];
 
@@ -26,9 +30,9 @@ if (!empty($_FILES['imagens']['tmp_name'][0])) {
 
 $new_description = $dom->saveHTML();
 
-$sql = "INSERT INTO products (name, price, img, images, categorie_id, stars, link,description) VALUES (?,?,?,?,?,?,?,?)";
+$sql = "INSERT INTO products (name, price, img, images, categorie_id, link, endereco,zona,quartos,bairro,metro_quadrado,description) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
 $stmt = $pdo->prepare($sql);
 $img_lob = $img . PDO::PARAM_LOB;
 $imgs = serialize($imagens) . PDO::PARAM_LOB;
-$stmt->execute([$name, $price, $img_lob, $imgs, $categorie_id, $stars, $link, $description]);
+$stmt->execute([$name, $price, $img_lob, $imgs, $categorie_id, $link, $endereco, $zona, $quartos, $bairro, $metro_quadrado, $description]);
 header('Location: ../dashboard.php');

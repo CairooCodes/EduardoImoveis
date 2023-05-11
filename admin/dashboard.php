@@ -68,7 +68,7 @@ $page = 'dash';
               <div id="dropdownAction" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
                 <ul class="py-1 text-sm text-gray-700" aria-labelledby="dropdownActionButton">
                   <li>
-                    <button data-modal-target="addUserModal" data-modal-show="addUserModal" class="block px-4 py-2 hover:bg-gray-100">Adicionar Produto</button>
+                    <button data-modal-target="addUserModal" data-modal-show="addUserModal" class="block px-4 py-2 hover:bg-gray-100">Adicionar Imóvel</button>
                   </li>
                   <li>
                     <a href="#" class="block px-4 py-2 hover:bg-gray-100">Exportar Dados</a>

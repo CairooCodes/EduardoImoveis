@@ -34,7 +34,7 @@ $banners = getBanners();
 							<?php
 							if (!empty($products['img'])) {
 								$img = base64_encode($products['img']);
-								echo "<img class='h-48 w-full rounded-lg' src='data:image/jpeg;base64," . $img . "'>";
+								echo "<img class='h-62 w-full rounded-lg' src='data:image/jpeg;base64," . $img . "'>";
 							}
 							?>
 							<div class="p-2 px-1">

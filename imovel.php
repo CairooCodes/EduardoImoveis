@@ -6,7 +6,7 @@ require "config/functions.php";
 
 $URI = new URI();
 $url = explode("/", $_SERVER['REQUEST_URI']);
-$get_url = $url[3];
+$get_url = $url[4];
 $get_url_2 = "";
 
 
@@ -82,7 +82,7 @@ function getHotel($get_url_2)
                 $imagens = unserialize($product['images']);
                 foreach ($imagens as $imagem) {
                   $imgs = base64_encode($imagem);
-                  echo "<div class='swiper-slide'><img class='h-96 w-full' src='data:image/jpeg;base64," . $imgs . "'></div>";
+                  echo "<div class='swiper-slide px-10 py-5'><img class='w-full' src='data:image/jpeg;base64," . $imgs . "'></div>";
                 }
               }
               ?>
