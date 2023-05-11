@@ -1,4 +1,4 @@
-<section class="swiper swiper_banners relative mt-20">
+<section class="swiper swiper_banners">
   <div class="swiper-wrapper">
     <?php
      foreach ($banners as $banners){

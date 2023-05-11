@@ -34,10 +34,10 @@ $banners = getBanners();
 							<?php
 							if (!empty($products['img'])) {
 								$img = base64_encode($products['img']);
-								echo "<img class='h-62 w-full rounded-lg' src='data:image/jpeg;base64," . $img . "'>";
+								echo "<img class='h-62 w-full' src='data:image/jpeg;base64," . $img . "'>";
 							}
 							?>
-							<div class="p-2 px-1">
+							<div class="p-2 px-1 pb-4">
 								<p class="uppercase text-sm text-color1 pt-3"><?php echo $products['bairro']; ?> - <?php echo $products['endereco']; ?></p>
 								<h1 class="text-color1 text-lg pb-3 text-bold"><?php echo $products['name']; ?></h1>
 								<div class="flex space-x-2  items-center">
@@ -49,18 +49,17 @@ $banners = getBanners();
 									<h2 class="text-base"><?php echo $products['metro_quadrado']; ?></h2>
 								</div>
 								<div class="flex justify-center">
-									<a class="btn bg-color1 p-2 text-white rounded text-sm mt-4" href="<?php echo $URI->base('/imovel/' . slugify($products['name'])); ?>">SAIBA MAIS</a>
+									<a class="btn p-2 text-color1 font-bold border-b-2 border-color1 rounded text-sm mt-4" href="<?php echo $URI->base('/imovel/' . slugify($products['name'])); ?>">SAIBA MAIS</a>
 								</div>
 							</div>
 						</div>
 					<?php } ?>
 				</div>
-				<div class="swiper-button-next"></div>
-				<div class="swiper-button-prev"></div>
 				<div class="swiper-pagination"></div>
 			</div>
 		</div>
 	</section>
+	<!-- <img src="./assets/img/banner_comercial.jpg" class="w-full"> -->
 	<?php include "./components/form.php" ?>
 	<?php include "./components/footer.php" ?>
 	<script src="./assets/js/dark_mode.js"></script>
@@ -70,6 +69,10 @@ $banners = getBanners();
 	<script>
 		var swiper = new Swiper(".swiper_banners", {
 			loop: true,
+			autoplay: {
+				delay: 5000,
+				disableOnInteraction: false,
+			},
 			pagination: {
 				el: ".swiper-pagination",
 				clickable: true,
@@ -85,10 +88,6 @@ $banners = getBanners();
 			autoplay: {
 				delay: 5000,
 				disableOnInteraction: false,
-			},
-			navigation: {
-				nextEl: '.swiper-button-next',
-				prevEl: '.swiper-button-prev',
 			},
 			pagination: {
 				el: ".swiper-pagination",

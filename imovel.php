@@ -6,7 +6,7 @@ require "config/functions.php";
 
 $URI = new URI();
 $url = explode("/", $_SERVER['REQUEST_URI']);
-$get_url = $url[3];
+$get_url = $url[4];
 $get_url_2 = "";
 
 
@@ -49,10 +49,10 @@ function getHotel($get_url_2)
 
 <body>
   <?php include "./components/navbar.php" ?>
-  <section class="pt-20">
+  <section class="pt-5">
     <div class="max-w-6xl px-4 pb-8 mx-auto lg:pb-16">
       <div class="swiper mySwiper lg:hidden">
-        <h1 class="text-color1 text-3xl pb-4 font-light">
+        <h1 class="text-color1 text-3xl pb-4">
           <?php echo $product['name']; ?>
         </h1>
         <div class="swiper-wrapper">
@@ -72,7 +72,7 @@ function getHotel($get_url_2)
       </div>
       <div class="grid lg:grid-cols-12 lg:pt-5">
         <div class="lg:col-span-7">
-          <h1 class="text-color1 text-3xl pb-4 font-light">
+          <h1 class="text-color1 hidden lg:block text-3xl pb-4 font-bold text-center">
             <?php echo $product['name']; ?>
           </h1>
           <div class="swiper mySwiper hidden lg:block">
@@ -105,6 +105,8 @@ function getHotel($get_url_2)
       </div>
     </div>
   </section>
+  <?php include "./components/form.php" ?>
+  <?php include "./components/footer.php" ?>
   <script src="https://unpkg.com/flowbite@1.4.1/dist/flowbite.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
   <script>
