@@ -93,7 +93,7 @@ function getHotel($get_url_2)
           </div>
           <div class="flex justify-center pt-5">
             <a target="_blank" href="<?php echo $product['link']; ?>">
-              <button class="bg-color1 rounded-md p-5 text-white">CONFIRA NOSSA DISPONIBILIDADE</button>
+              <button class="bg-color1 rounded-md p-5 text-white">ENTRE EM CONTATO AGORA   <i class="bi bi-whatsapp text-white text-lg"></i> </button>
             </a>
           </div>
         </div>

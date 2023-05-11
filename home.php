@@ -49,7 +49,7 @@ $banners = getBanners();
 									<h2 class="text-base"><?php echo $products['metro_quadrado']; ?></h2>
 								</div>
 								<div class="flex justify-center">
-									<a class="btn p-2 text-color1 font-bold border-b-2 border-color1 rounded text-sm mt-4" href="<?php echo $URI->base('/imovel/' . slugify($products['name'])); ?>">SAIBA MAIS</a>
+									<a class="btn p-2 text-color1 font-bold border-b-2 border-color1 rounded text-sm mt-4" href="<?php echo $URI->base('imovel/' . slugify($products['name'])); ?>">SAIBA MAIS</a>
 								</div>
 							</div>
 						</div>
