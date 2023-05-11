@@ -1,5 +1,5 @@
 <?php
-function updateProduct($id, $name, $price, $categorie_id, $img, $stars, $description)
+function updateProduct($id, $name, $price, $categorie_id, $img, $endereco, $zona, $metro_quadrado, $bairro, $quartos, $description)
 {
   global $pdo;
   if ($img) {
@@ -8,18 +8,26 @@ function updateProduct($id, $name, $price, $categorie_id, $img, $stars, $descrip
     $stmt->bindParam(':name', $name);
     $stmt->bindParam(':price', $price);
     $stmt->bindParam(':categorie_id', $categorie_id);
+    $stmt->bindParam(':endereco', $endereco);
+    $stmt->bindParam(':zona', $zona);
+    $stmt->bindParam(':metro_quadrado', $metro_quadrado);
+    $stmt->bindParam(':bairro', $bairro);
+    $stmt->bindParam(':quartos', $quartos);
     $stmt->bindParam(':description', $description);
-    $stmt->bindParam(':stars', $stars);
     $stmt->bindValue(':img', $img_lob, PDO::PARAM_LOB);
     $stmt->bindParam(':id', $id);
   } else {
-    $stmt = $pdo->prepare("UPDATE products SET name = :name, price = :price, categorie_id = :categorie_id, stars = :stars, description=:description WHERE id = :id");
+    $stmt = $pdo->prepare("UPDATE products SET name = :name, price = :price, categorie_id = :categorie_id, endereco = :endereco, zona = :zona, metro_quadrado = :metro_quadrado, bairro = :bairro, quartos = :quartos,  description=:description WHERE id = :id");
     $stmt->bindParam(':name', $name);
     $stmt->bindParam(':price', $price);
     $stmt->bindParam(':categorie_id', $categorie_id);
+    $stmt->bindParam(':endereco', $endereco);
+    $stmt->bindParam(':zona', $zona);
+    $stmt->bindParam(':metro_quadrado', $metro_quadrado);
+    $stmt->bindParam(':bairro', $bairro);
+    $stmt->bindParam(':quartos', $quartos);
     $stmt->bindParam(':description', $description);
     $stmt->bindParam(':id', $id);
-    $stmt->bindParam(':stars', $stars);
   }
   $stmt->execute();
 }

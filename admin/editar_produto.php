@@ -67,7 +67,7 @@ $categories = getCategories();
           <!-- Modal header -->
           <div class="flex items-start justify-between p-4 border-b rounded-t">
             <h3 class="text-xl font-semibold text-gray-900">
-              Editar Produto
+              Editar Imóvel
             </h3>
           </div>
           <!-- Modal body -->
@@ -94,17 +94,31 @@ $categories = getCategories();
                   <?php } ?>
                 </select>
               </div>
-              <div class="col-span-6 sm:col-span-3">
-                <label for="minmax-range" class="block mb-2 text-sm font-medium text-gray-900">Estrelas</label>
-                <input id="minmax-range" name="stars" onchange="visibleStars();" type="range" min="0" max="5" value="<?php echo $product['stars']; ?>" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
-                <div id="showStars" class="flex">
-                </div>
-              </div>
               <input id="id" name="id" type="hidden" value="<?php echo $product['id']; ?>">
               <div class="col-span-6 sm:col-span-3">
                 <label for="phone-number" class="block mb-2 text-sm font-medium text-gray-900">Imagem</label>
                 <input type="file" id="img" name="img">
               </div>
+            </div>
+            <div class="col-span-6 sm:col-span-3">
+              <label for="last-name" class="block mb-2 hidden text-sm font-medium text-gray-900">Metro Quadrado</label>
+              <input type="text" name="metro_quadrado" value="<?php echo $product['metro_quadrado']; ?>" id="link" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5" placeholder="Metro quadrado do imóvel">
+            </div>
+            <div class="col-span-6 sm:col-span-3">
+              <label for="last-name" class="block mb-2 hidden text-sm font-medium text-gray-900">Zona</label>
+              <input type="text" name="zona" value="<?php echo $product['zona']; ?>" id="zona" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5" placeholder="Zona do Imóvel">
+            </div>
+            <div class="col-span-6 sm:col-span-3">
+              <label for="last-name" class="block mb-2 hidden text-sm font-medium text-gray-900">Endereço</label>
+              <input type="text" name="endereco" value="<?php echo $product['endereco']; ?>" id="endereco" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5" placeholder="Endereço do Imóvel">
+            </div>
+            <div class="col-span-6 sm:col-span-3">
+              <label for="last-name" class="block mb-2 hidden text-sm font-medium text-gray-900">Quartos</label>
+              <input type="text" name="quartos" value="<?php echo $product['quartos']; ?>" id="endereco" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5" placeholder="Quartos e Suítes">
+            </div>
+            <div class="col-span-6 sm:col-span-3">
+              <label for="last-name" class="block mb-2 hidden text-sm font-medium text-gray-900">Bairro</label>
+              <input type="text" name="bairro" value="<?php echo $product['bairro']; ?>" id="bairro" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5" placeholder="Bairro do Imóvel">
             </div>
             <textarea name="description" id="description" type="text"><?php echo $product['description']; ?></textarea>
             <!-- Modal footer -->
@@ -115,44 +129,6 @@ $categories = getCategories();
       </div>
     </div>
   </div>
-  <script>
-    let countStars;
-
-    function visibleStars() {
-      let concat = '';
-      countStars = document.getElementById('minmax-range').value;
-      countStars = parseInt(countStars);
-      for (i = 0; i < 5; i++) {
-        if (i < countStars && countStars != 0) {
-          concat += '<svg style="color: #ffd700 !important" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16"><path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" /></svg>'
-        } else {
-          concat += '<svg style="color: #ffd700 !important" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16"><path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z" /></svg>'
-        }
-      }
-      document.getElementById('showStars').innerHTML = "";
-      document.getElementById('showStars').innerHTML = concat;
-    }
-    visibleStars();
-    const inputBusca = document.querySelector('#busca');
-    inputBusca.addEventListener('input', () => {
-      const termoBusca = inputBusca.value.toLowerCase();
-      filtrarLinhas(termoBusca);
-    });
-
-    function filtrarLinhas(termo) {
-      const tbody = document.querySelector('table tbody');
-      const linhas = tbody.querySelectorAll('tr');
-
-      linhas.forEach((linha) => {
-        const textoLinha = linha.textContent.toLowerCase();
-        if (textoLinha.includes(termo)) {
-          linha.classList.remove('hidden');
-        } else {
-          linha.classList.add('hidden');
-        }
-      });
-    }
-  </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.js"></script>
   <script>
     tinymce.init({

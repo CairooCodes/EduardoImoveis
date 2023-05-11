@@ -65,7 +65,7 @@ $categories = getCategories();
           <!-- Modal header -->
           <div class="flex items-start justify-between p-4 border-b rounded-t">
             <h3 class="text-xl font-semibold text-gray-900">
-              Editar Produto
+              Editar Banner
             </h3>
           </div>
           <!-- Modal body -->
