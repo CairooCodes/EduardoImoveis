@@ -41,12 +41,23 @@ $banners = getBanners();
 								<p class="uppercase text-sm text-color1 pt-3"><?php echo $products['bairro']; ?> - <?php echo $products['endereco']; ?></p>
 								<h1 class="text-color1 text-lg pb-3 text-bold"><?php echo $products['name']; ?></h1>
 								<div class="flex space-x-2  items-center">
-									<img class="w-5 h-5" src="./assets/img/quarto.png">
-									<h2 class="text-base"><?php echo $products['quartos']; ?></h2>
+									<?php
+									if (!empty($products['quartos'])) { ?>
+										<img class="w-5 h-5" src="./assets/img/quarto.png">
+										<h2 class="text-base"><?php echo $products['quartos']; ?></h2>
+									<?php
+									}
+									?>
 								</div>
 								<div class="flex space-x-2  items-center">
-									<img class="w-5 h-5" src="./assets/img/metro.png">
-									<h2 class="text-base"><?php echo $products['metro_quadrado']; ?></h2>
+									<?php
+									if (!empty($products['metro_quadrado'])) { ?>
+											<img class="w-5 h-5" src="./assets/img/metro.png">
+											<h2 class="text-base"><?php echo $products['metro_quadrado']; ?></h2>
+									<?php
+									}
+									?>
+								
 								</div>
 								<div class="flex justify-center">
 									<a class="btn p-2 text-color1 font-bold border-b-2 border-color1 rounded text-sm mt-4" href="<?php echo $URI->base('imovel/' . slugify($products['name'])); ?>">SAIBA MAIS</a>
