@@ -3,31 +3,7 @@
 function getAllProducts()
 {
   global $pdo;
-  $stmt = $pdo->prepare("SELECT * FROM products order by id asc");
-  $stmt->execute();
-  return $stmt->fetchAll(PDO::FETCH_ASSOC);
-}
-
-function getProducts()
-{
-  global $pdo;
-  $stmt = $pdo->prepare("SELECT * FROM products where categorie_id = 1 order by id desc");
-  $stmt->execute();
-  return $stmt->fetchAll(PDO::FETCH_ASSOC);
-}
-
-function getProducts2()
-{
-  global $pdo;
-  $stmt = $pdo->prepare("SELECT * FROM products where categorie_id = 9 order by id desc");
-  $stmt->execute();
-  return $stmt->fetchAll(PDO::FETCH_ASSOC);
-}
-
-function getProducts3()
-{
-  global $pdo;
-  $stmt = $pdo->prepare("SELECT * FROM products where categorie_id = 2 order by id desc");
+  $stmt = $pdo->prepare("SELECT *,c.name as tipo,p.name as nome_imovel FROM products p inner join categories c on c.id = p.categorie_id  order by p.id asc");
   $stmt->execute();
   return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }

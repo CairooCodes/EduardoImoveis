@@ -26,8 +26,12 @@ $banners = getBanners();
 		<div class="max-w-6xl px-4 pb-8 mx-auto lg:pb-16 home-swiper1">
 			<p class="uppercase text-xl text-color1 font-bold">Conheça nossos imóveis à venda</p>
 			<h1 class="text-xl pb-4 font-light">Conforto, alta qualidade e a localização que você sempre quis. Encontre o seu imóvel.</h1>
+			<div class="w-full mb-4">
+				<input type="text" id="search" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Busque por bairros, zonas, casas, apartamento...">
+			</div>
+
 			<div class="swiper mySwiper">
-				<div class="swiper-wrapper pb-10">
+				<div class="swiper-wrapper pb-10 search">
 					<?php foreach ($products as $products) { ?>
 						<div class="swiper-slide shadow rounded-b-2xl">
 
@@ -38,13 +42,20 @@ $banners = getBanners();
 							}
 							?>
 							<div class="p-2 px-1 pb-4">
-								<p class="uppercase text-sm text-color1 pt-3"><?php echo $products['bairro']; ?> - <?php echo $products['endereco']; ?></p>
-								<h1 class="text-color1 text-lg pb-3 text-bold"><?php echo $products['name']; ?></h1>
+								<p class="uppercase text-sm text-color1 pt-3">
+									<?php echo $products['bairro'];
+									if (!empty($products['endereco'])) {
+										echo " - ";
+									}
+									echo $products['endereco']; ?></p>
+								<h1 class="text-color1 text-lg pb-3 text-bold"><?php echo $products['nome_imovel']; ?></h1>
+								<h2 class="hidden">
+									<?php echo $products['tipo']; ?></h2>
 								<div class="flex space-x-2  items-center">
 									<?php
 									if (!empty($products['quartos'])) { ?>
 										<img class="w-5 h-5" src="./assets/img/quarto.png">
-										<h2 class="text-base"><?php echo $products['quartos']; ?></h2>
+										<h1 class="text-base"><?php echo $products['quartos']; ?></h1>
 									<?php
 									}
 									?>
@@ -52,12 +63,12 @@ $banners = getBanners();
 								<div class="flex space-x-2  items-center">
 									<?php
 									if (!empty($products['metro_quadrado'])) { ?>
-											<img class="w-5 h-5" src="./assets/img/metro.png">
-											<h2 class="text-base"><?php echo $products['metro_quadrado']; ?></h2>
+										<img class="w-5 h-5" src="./assets/img/metro.png">
+										<h1 class="text-base"><?php echo $products['metro_quadrado']; ?></h1>
 									<?php
 									}
 									?>
-								
+
 								</div>
 								<div class="flex justify-center">
 									<a class="btn p-2 text-color1 font-bold border-b-2 border-color1 rounded text-sm mt-4" href="<?php echo $URI->base('imovel/' . slugify($products['name'])); ?>">SAIBA MAIS</a>
@@ -118,6 +129,35 @@ $banners = getBanners();
 					spaceBetween: 20,
 				},
 			},
+		});
+	</script>
+	<script>
+		const inputBusca = document.getElementById('search');
+		const mensagemNenhumResultado = document.getElementById('mensagem-nenhum-resultado');
+
+		inputBusca.addEventListener('keyup', () => {
+			const termoBusca = inputBusca.value.toLowerCase();
+			const cards = document.querySelectorAll('.search > div');
+			let resultadosEncontrados = 0;
+
+			cards.forEach(card => {
+				const titulo = card.querySelector('h2').textContent.toLowerCase();
+				const subtitulo = card.querySelector('h1').textContent.toLowerCase();
+				const descricao = card.querySelector('p:nth-of-type(1)').textContent.toLowerCase();
+
+				if (titulo.includes(termoBusca) || descricao.includes(termoBusca) || subtitulo.includes(termoBusca)) {
+					card.style.display = 'block';
+					resultadosEncontrados++;
+				} else {
+					card.style.display = 'none';
+				}
+			});
+
+			if (resultadosEncontrados === 0) {
+				mensagemNenhumResultado.style.display = 'block';
+			} else {
+				mensagemNenhumResultado.style.display = 'none';
+			}
 		});
 	</script>
 </body>
